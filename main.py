@@ -23,10 +23,6 @@ cors = CORS(app)
 
 mongo = PyMongo(app)
 
-@app.route('/refresh_questions', methods=['GET'])
-def refresh_questions():
-  return utils.refresh_questions(mongo.db)
-
 @app.route('/get_questions/<difficulty>', methods=['GET'])
 def get_questions(difficulty):
   return utils.get_questions(mongo.db, difficulty)
