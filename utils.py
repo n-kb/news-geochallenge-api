@@ -65,13 +65,13 @@ def refresh_questions(db):
 def make_token():
     unixtime = (datetime.datetime.utcnow() - datetime.datetime(1970,1,1)).total_seconds()
     unixtime_rounded = int(unixtime / 100) * 100
-    return hashlib.md5(SALT + str(unixtime_rounded)).hexdigest()
+    return hashlib.md5((SALT + str(unixtime_rounded)).encode("ascii")).hexdigest()
 
 def check_token(token):
     unixtime = (datetime.datetime.utcnow() - datetime.datetime(1970,1,1)).total_seconds()
     unixtime_rounded = int(unixtime / 100) * 100
-    current_token = hashlib.md5(SALT + str(unixtime_rounded)).hexdigest()
-    previous_token = hashlib.md5(SALT + str(unixtime_rounded - 100)).hexdigest()
+    current_token = hashlib.md5((SALT + str(unixtime_rounded)).encode("ascii")).hexdigest()
+    previous_token = hashlib.md5((SALT + str(unixtime_rounded - 100)).encode("ascii")).hexdigest()
 
     if token == current_token or token == previous_token:
         return True
