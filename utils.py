@@ -54,14 +54,14 @@ def get_questions(db, difficulty):
     random.shuffle(questions) 
     q_count = 0
     for question in questions:
-        if q_count < 2:
+        if q_count < 8:
             returned_questions.append(jsonEncode(question))
             q_count += 1
 
     return jsonify({"token": make_token(), "questions": returned_questions})
 
 def make_username():
-    animals = ["fox 🦊", "gorilla 🦍", "cat 🐱", "dog 🐶", "wolf 🐺"]
+    animals = ["fox 🦊", "gorilla 🦍", "cat 🐱", "dog 🐶", "wolf 🐺", "baboon 🐒", "horse 🐴", "tiger 🐯", "lion 🦁", "zebra 🦓", "cow 🐮"]
     return "Anonymous " + animals[int(random.random() * len(animals))]
 
 def add_score(db, points, token):
