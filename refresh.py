@@ -40,8 +40,8 @@ if __name__ == '__main__':
     for event in q.execQuery(er, 
                              sortBy = "date", 
                              returnInfo = ReturnInfo( eventInfo = EventInfoFlags(imageCount = 1)), 
-                             maxItems = 20, 
-                             eventBatchSize = 20):
+                             maxItems = 50, 
+                             eventBatchSize = 50):
         if event["location"] is not None and "images" in event:
             location = event["location"]["label"]["eng"] + ", " + event["location"]["country"]["label"]["eng"]
             lat,lon = geoloc(location.replace(" ", ""))
