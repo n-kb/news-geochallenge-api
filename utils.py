@@ -31,7 +31,7 @@ def check_token(token):
 
 def jsonEncode(l):
     returned_dict = {}
-    for key, value in l.iteritems():
+    for key, value in l.items():
         if isinstance(value, ObjectId):
             returned_dict[key] = str(value)
         else:
