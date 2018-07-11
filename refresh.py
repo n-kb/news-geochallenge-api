@@ -22,7 +22,7 @@ if __name__ == '__main__':
     EVENTREGISTRY_API_KEY = os.environ["EVENTREGISTRY_API_KEY"]
 
     if (os.environ.get('MONGODB_URI')):
-        db_name = os.environ.get('MONGODB_URI').split("/")[1].split(":")[1]
+        db_name = os.environ.get('MONGODB_URI').split("/")[3]
         db_uri = os.environ.get('MONGODB_URI')
     else:
         db_name = 'geochallenge'
