@@ -37,7 +37,7 @@ if __name__ == '__main__':
     dateStart = datetime.date.today() + datetime.timedelta(days=-30)
     dateEnd = datetime.date.today()
     er = EventRegistry(apiKey = EVENTREGISTRY_API_KEY)
-    q = QueryEventsIter(dateStart = dateStart, dateEnd = dateEnd, lang="eng", minArticlesInEvent=200)
+    q = QueryEventsIter(dateStart = dateStart, dateEnd = dateEnd, lang="eng", minArticlesInEvent=int(random.random() * 250))
     for event in q.execQuery(er, 
                              sortBy = "date", 
                              returnInfo = ReturnInfo( eventInfo = EventInfoFlags(imageCount = 1)), 
